@@ -6,6 +6,8 @@ RUN mvn clean package -DskipTests
 
 # Package stage
 FROM openjdk:17-ea-28-jdk-slim
-COPY --from=build /target/backend-0.0.1-SNAPSHOT.jar backend.jar
+COPY --from=build /target/cloud-storage-0.0.1-SNAPSHOT.jar cloud-storage.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "backend.jar"]
+ENTRYPOINT ["java", "-jar", "cloud-storage.jar"]
+
+RUN ls /target
