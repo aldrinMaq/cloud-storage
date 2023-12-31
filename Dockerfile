@@ -1,7 +1,10 @@
+# Build stage
 FROM maven:3.8.3-openjdk-17 AS build
-COPY . .
+COPY src src
+COPY pom.xml .
 RUN mvn clean package -DskipTests
 
+# Package stage
 FROM openjdk:17-ea-28-jdk-slim
 COPY --from=build /target/backend-0.0.1-SNAPSHOT.jar backend.jar
 EXPOSE 8080
