@@ -25,7 +25,7 @@ public class SecurityConfig  {
                 .cors(cors -> cors.configurationSource(request -> {
                     CorsConfiguration config = new CorsConfiguration();
                     config.setAllowedOrigins(List.of(
-                            "https://cloud-storage-frontend-pq56.vercel.app", // Add your frontend's origin
+                            "https://your-cloud-maquiling.vercel.app", // Add your frontend's origin
                             "http://localhost:5173" // Keep this for local testing
                     ));
                     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
