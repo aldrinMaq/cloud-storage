@@ -10,4 +10,4 @@ COPY --from=build /target/cloud-storage-0.0.1-SNAPSHOT.jar cloud-storage.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "cloud-storage.jar"]
 
-RUN ls /target
+#RUN ls /target
