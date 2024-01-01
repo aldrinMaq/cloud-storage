@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -46,9 +47,18 @@ public class CloudinaryService {
                 .execute();
     }
 
-    public Map deleteImage(String publicId, boolean invalidate) throws Exception {
-        Map options = ObjectUtils.asMap("invalidate", invalidate);
-        return cloudinary.uploader().destroy(publicId, options);
+//    public Map deleteImage(String publicId, boolean invalidate) throws Exception {
+//        Map options = ObjectUtils.asMap("invalidate", invalidate);
+//        return cloudinary.uploader().destroy(publicId, options);
+//    }
+
+//    public void deleteImages(List<String> publicIds) throws Exception {
+//        cloudinary.api().deleteResources(publicIds, ObjectUtils.emptyMap());
+//    }
+
+    public Map deleteResources(List<String> publicIds) throws Exception {
+        // Deleting multiple resources by public IDs
+        return cloudinary.api().deleteResources(publicIds, ObjectUtils.emptyMap());
     }
 
     public Map uploadFile(MultipartFile file, String folderPath) throws IOException {

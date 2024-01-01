@@ -2,8 +2,10 @@ package com.maquiling.cloudstorage.model.auth;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "puser")
 public class User {

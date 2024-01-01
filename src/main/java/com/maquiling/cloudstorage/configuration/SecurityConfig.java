@@ -36,7 +36,9 @@ public class SecurityConfig  {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/api/cloudinary/delete").permitAll()
                         .anyRequest().authenticated()
+
                 )
                 .httpBasic(AbstractHttpConfigurer::disable);
 
