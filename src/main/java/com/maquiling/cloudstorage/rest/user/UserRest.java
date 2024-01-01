@@ -35,7 +35,9 @@ public class UserRest {
             if (userRepo.existsByUsername(user.getUsername())) {
                 return ResponseEntity.badRequest().body("Username already exists, account cannot be created");
             }
-
+            if (userRepo.existsByEmail(user.getEmail())) {
+                return ResponseEntity.badRequest().body("Email already exists, account cannot be created");
+            }
             /// Create folder with the username as the folder path
             ApiResponse folderCreationResponse = cloudinaryService.createFolder(user.getUsername());
             // Check for a successful response
