@@ -9,13 +9,10 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**")  // Adjust the path pattern to suit your needs
-                .allowedOrigins(
-                        "http://localhost:5173",
-                        "https://your-cloud-maquiling.vercel.app"
-                ) .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*")
-                .allowCredentials(true);
+        registry.addMapping("/**")
+                .allowedOrigins("*") // Allow all origins
+                .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS") // Allow all methods
+                .allowedHeaders("*"); // Allow all headers
     }
 
 }
