@@ -13,8 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOrigins(
                         "http://localhost:5173",
                         "https://your-cloud-maquiling.vercel.app",
-                        "https://cloud-storage-frontend-swart.vercel.app",
-                        "https://08f7-2001-4455-266-d800-e540-a8ee-6a3c-b78f.ngrok-free.app"
+                        "https://cloud-storage-frontend-swart.vercel.app"
                 ) .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
