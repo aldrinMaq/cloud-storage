@@ -12,7 +12,8 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/api/**")  // Adjust the path pattern to suit your needs
                 .allowedOrigins(
                         "http://localhost:5173",
-                        "https://your-cloud-maquiling.vercel.app"
+                        "https://your-cloud-maquiling.vercel.app",
+                        "https://cloud-storage-frontend-swart.vercel.app"
                 ) .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
