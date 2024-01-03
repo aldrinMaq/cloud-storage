@@ -54,4 +54,17 @@ public class CloudinaryController {
         }
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<?> searchImagesByDisplayName(
+            @RequestParam String folderName,
+            @RequestParam String displayName) {
+        try {
+            ApiResponse apiResponse = cloudinaryService.searchImagesByPartialDisplayName(folderName, displayName);
+            return ResponseEntity.ok(apiResponse);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error during image search by display name: " + e.getMessage());
+        }
+    }
+
 }

@@ -43,7 +43,7 @@ public class ImageController {
     @PostMapping("/upload-to-folder")
     public ResponseEntity<?> uploadImageToFolder(@RequestParam("file") MultipartFile file, @RequestParam("folderPath") String folderPath) {
         try {
-            Map uploadResult = cloudinaryService.uploadFile(file, folderPath);
+            Map uploadResult = cloudinaryService.uploadImageToFolder(file, folderPath);
             return ResponseEntity.ok(uploadResult);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error uploading image: " + e.getMessage());
