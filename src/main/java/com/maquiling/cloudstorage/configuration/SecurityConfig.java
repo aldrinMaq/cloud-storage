@@ -62,13 +62,13 @@ public class SecurityConfig  {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/**").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/api/cloudinary/delete").permitAll()
+                        .requestMatchers("/actuator/**").permitAll() // Allow access to Actuator endpoints
                         .anyRequest().authenticated()
                 )
                 .httpBasic(AbstractHttpConfigurer::disable);
 
         return http.build();
     }
-
 
     @Bean
     public PasswordEncoder passwordEncoder() {
