@@ -11,7 +11,7 @@ public class SelfPingTask {
     @Scheduled(fixedRate = 600000) // Every 10 minutes
     public void pingSelf() {
         try {
-            String url = "https://your-cloud-maquiling.vercel.app/actuator/health"; // Replace with your application's URL
+            String url = "https://cloud-storage-g8vy.onrender.com/actuator/health"; // Replace with your application's URL
             restTemplate.getForObject(url, String.class);
         } catch (Exception e) {
             // Handle exceptions
